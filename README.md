@@ -12,6 +12,10 @@ Installation:
 ```shell script
   pip install panorma
 ```
+or
+```shell script
+  poetry add panorma
+```
 
 Example:
 -
