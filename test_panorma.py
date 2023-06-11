@@ -70,3 +70,8 @@ class TestPanorma(unittest.TestCase):
     def test_cars_dataset(self):
         cars = Cars(self.test_dataset.to_dict())
         self.assertAlmostEqual(float(cars.mpg.max()), 46.6, 5)
+
+    def test_passing_dataframe_to_model(self):
+        cars = Cars(self.test_dataset)
+        self.assertIsInstance(cars, pd.DataFrame)
+        self.assertAlmostEqual(float(cars.mpg.max()), 46.6, 5)
