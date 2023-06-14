@@ -3,27 +3,27 @@ import unittest
 import pandas as pd
 
 from panorma.exceptions import NotMatchingFields, ParseError
-from panorma.fields import StringDtype, Int16Dtype, Float32Dtype, Timestamp, CategoricalDtype
+from panorma.fields import String, Int, Float, DateTime, Categorical
 from panorma.frames import DataFrame
 
 
 class Users(DataFrame):
-    name: StringDtype
-    age: Int16Dtype
-    percentage: Float32Dtype
-    birth_date: Timestamp
+    name: String
+    age: Int
+    percentage: Float
+    birth_date: DateTime
 
 
 class Cars(DataFrame):
-    car: StringDtype
-    mpg: Float32Dtype
-    cylinders: Int16Dtype
-    displacement: Float32Dtype
-    horsepower: Float32Dtype
-    weight: Float32Dtype
-    acceleration: Float32Dtype
-    model: Int16Dtype
-    origin: CategoricalDtype
+    car: String
+    mpg: Float
+    cylinders: Int
+    displacement: Float
+    horsepower: Float
+    weight: Float
+    acceleration: Float
+    model: Int
+    origin: Categorical
 
 
 class TestPanorma(unittest.TestCase):
@@ -57,11 +57,11 @@ class TestPanorma(unittest.TestCase):
         users = Users(self.users_dict)
         self.assertIsInstance(users, pd.DataFrame)
 
-    def test_model_fields_are_matching_with_columns(self):
+    def test_model_fields_are_matching_with_columns__Should_Raise_NotMatchingFields(self):
         with self.assertRaises(NotMatchingFields):
             Users(self.users_dict_with_missing_field)
 
-    def test_df_columns_are_convertible_to_model_field_types(self):
+    def test_df_columns_are_convertible_to_model_field_types__Should_Raise_ParseError(self):
         with self.assertRaises(ParseError):
             Users(self.users_dict_with_wrong_data_types)
         with self.assertRaises(ParseError):

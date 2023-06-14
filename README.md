@@ -21,26 +21,26 @@ Example:
 -
 - Create some models:
 ```python
-from panorma.fields import StringDtype, Int16Dtype, Float32Dtype, Timestamp, CategoricalDtype
+from panorma.fields import String, Int, Float, DateTime, Categorical
 from panorma.frames import DataFrame
 
 class Users(DataFrame):
-    name: StringDtype
-    age: Int16Dtype
-    percentage: Float32Dtype
-    birth_date: Timestamp
+    name: String
+    age: Int
+    percentage: Float
+    birth_date: DateTime
 
 
 class Cars(DataFrame):
-    car: StringDtype
-    mpg: Float32Dtype
-    cylinders: Int16Dtype
-    displacement: Float32Dtype
-    horsepower: Float32Dtype
-    weight: Float32Dtype
-    acceleration: Float32Dtype
-    model: Int16Dtype
-    origin: CategoricalDtype
+    car: String
+    mpg: Float
+    cylinders: Int
+    displacement: Float
+    horsepower: Float
+    weight: Float
+    acceleration: Float
+    model: Int
+    origin: Categorical
 ```
 
 - Instantiate your models as you instantiate a simple pandas dataframe
