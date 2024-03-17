@@ -2,7 +2,7 @@
 name = "panorma"
 version = "0.1.0"
 description = ""
-authors = ["MayasMess <test@test.com>"]
+authors = ["Mayas Nova"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
